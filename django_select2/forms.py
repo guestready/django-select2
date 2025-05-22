@@ -291,6 +291,9 @@ class HeavySelect2Mixin:
 
         attrs = super().build_attrs(default_attrs, extra_attrs=extra_attrs)
 
+        # Refresh uuid at build attributes to avoid cache collisions
+        self.uuid = str(uuid.uuid4())
+        self.field_id = signing.dumps(self.uuid)
         attrs["data-field_id"] = self.field_id
 
         attrs["class"] += " django-select2-heavy"
