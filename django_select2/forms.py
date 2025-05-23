@@ -239,6 +239,7 @@ class HeavySelect2Mixin:
     data_url = None
 
     def __init__(self, attrs=None, choices=(), **kwargs):
+        print("This is initialized!")
         """
         Return HeavySelect2Mixin.
 
